@@ -10,14 +10,12 @@ http
     res.write(`<h1>Hello ${user.username}</h1>`);
     res.write(`<p>OS Platform: ${os.platform}</p>`);
     res.write(`<p>OS Release: ${release}</p>`);
-    res.write(`OS type: ${osType}`)
+    res.write(`OS type: ${osType}`);
     res.write(`<p>CPU architecture: ${os.arch}</p>`);
-    res.write(
-      `<p>CPU info: </p><blockquote>Model: ${CPUs.map(
-        (e) => e.model
-      )} </blockquote><blockquote>Speed: ${CPUs.map(
-        (e) => e.speed
-      )}</blockquote>`
-    );
+    CPUs[0].map((cpu) => {
+      res.write(
+        `<p>CPU info: </p><blockquote>Model: ${cpu.model} </blockquote><blockquote>Speed: ${cpu.speed}</blockquote>`
+      );
+    });
   })
   .listen(1000);
